@@ -20,8 +20,15 @@ static const char *colors[][3]      = {
 	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
 };
 
+static const char *tagsel[][2] = {
+   /*   fg         bg    */
+  { col_gray3, col_gray1 }, /* norm */
+  { col_gray4, col_cyan  }, /* sel */
+  { col_cyan,  col_gray1 }, /* occ but not sel */
+  { col_cyan,  col_gray3 }, /* has pinned tag */
+};
 /* tagging */
-static const char *tags[] = { "⏺", "⏺", "⏺", "⏺", "⏺" };
+static const char *tags[] = { "", "", "", "", "" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -30,7 +37,7 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "firefox",  NULL,       NULL,       1 << 0,       0,           -1 },
-	{ "subl",     NULL,       NULL,       2 << 1,       0,           -1 },
+	{ "subl",     NULL,       NULL,       1 << 1,       0,           -1 },
 /*	{ "st",       NULL,       NULL,       0 << 0,       1,           -1 }, */
 };
 
