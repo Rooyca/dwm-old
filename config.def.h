@@ -37,7 +37,7 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "firefox",  NULL,       NULL,       1 << 0,       0,           -1 },
-	{ "subl",     NULL,       NULL,       1 << 1,       0,           -1 },
+	{ "Subl",     NULL,       NULL,       1 << 1,       0,           -1 },
 /*	{ "st",       NULL,       NULL,       0 << 0,       1,           -1 }, */
 };
 
@@ -69,6 +69,7 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
+static const char *tmuxcmd[]  = { "st", "tmux", "a", NULL };
 static const char *filecmd[]  = { "pcmanfm", NULL };
 static const char *browsercmd[]  = { "firefox", NULL };
 static const char *sublcmd[]  = { "subl", NULL };
@@ -89,6 +90,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_e,      spawn,          {.v = filecmd } },
 	{ MODKEY,                       XK_b,      spawn,          {.v = browsercmd } },
 	{ MODKEY|ShiftMask,             XK_l,      spawn,          {.v = lockcmd } },
+	{ MODKEY|ShiftMask,             XK_t,      spawn,          {.v = tmuxcmd } },
 	{ MODKEY|ShiftMask,             XK_p,      spawn,          {.v = powercmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_v,      togglebar,      {0} },
