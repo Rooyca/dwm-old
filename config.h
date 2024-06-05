@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 1;        /* border pixel of windows */
+static const unsigned int borderpx  = 0;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
@@ -13,7 +13,7 @@ static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#770070";
+static const char col_cyan[]        = "#344C9E";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
@@ -38,6 +38,7 @@ static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "firefox",  NULL,       NULL,       1 << 0,       0,           -1 },
 	{ "Subl",     NULL,       NULL,       1 << 1,       0,           -1 },
+	{ "obsidian", NULL,       NULL,       1 << 3,       0,           -1 },
 /*	{ "st",       NULL,       NULL,       0 << 0,       1,           -1 }, */
 };
 
@@ -69,7 +70,7 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
-static const char *tmuxcmd[]  = { "st", "tmux", "a", NULL };
+//static const char *tmuxcmd[]  = { "st", "tmux", "a", NULL };
 static const char *filecmd[]  = { "pcmanfm", NULL };
 static const char *browsercmd[]  = { "firefox", NULL };
 static const char *sublcmd[]  = { "subl", NULL };
@@ -90,7 +91,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_e,      spawn,          {.v = filecmd } },
 	{ MODKEY,                       XK_b,      spawn,          {.v = browsercmd } },
 	{ MODKEY|ShiftMask,             XK_l,      spawn,          {.v = lockcmd } },
-	{ MODKEY|ShiftMask,             XK_t,      spawn,          {.v = tmuxcmd } },
+	//{ MODKEY|ShiftMask,             XK_t,      spawn,          {.v = tmuxcmd } },
 	{ MODKEY|ShiftMask,             XK_p,      spawn,          {.v = powercmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_v,      togglebar,      {0} },
