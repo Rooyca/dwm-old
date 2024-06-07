@@ -13,7 +13,7 @@ static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#344C9E";
+static const char col_cyan[]        = "#31748f";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
@@ -56,6 +56,7 @@ static const Layout layouts[] = {
 };
 
 /* key definitions */
+#define PrintScreenDWM 0x0000ff61
 #define MODKEY Mod4Mask
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
@@ -81,11 +82,13 @@ static const char *brightup[]  = { "brightnessctl", "s", "+10%", NULL };
 static const char *brightdown[]  = { "brightnessctl", "s", "10%-", NULL };
 static const char *powercmd[] = {"/home/rooyca/.local/bin/pmanager", NULL};
 static const char *lockcmd[] = {"physlock", "-s", "-p", " == Who is you ==", NULL};
+static const char *cmdprintscreen[]  = { "scrot", "-d3", "/home/rooyca/screenshots/%Y-%m-%d-%s_$wx$h.jpg", NULL };
 
 #include <X11/XF86keysym.h>
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
+	{ 0,		      		 PrintScreenDWM,      spawn,          {.v = cmdprintscreen } },
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_s,      spawn,          {.v = sublcmd } },
 	{ MODKEY,                       XK_e,      spawn,          {.v = filecmd } },
