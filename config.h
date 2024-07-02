@@ -13,7 +13,7 @@ static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#31748f";
+static const char col_cyan[]        = "#695882"; /* #31748f */
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
@@ -37,9 +37,11 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "firefox",  NULL,       NULL,       1 << 0,       0,           -1 },
+	{ "falkon",   NULL,       NULL,       1 << 0,       0,           -1 },
 	{ "Subl",     NULL,       NULL,       1 << 1,       0,           -1 },
 	{ "obsidian", NULL,       NULL,       1 << 3,       0,           -1 },
 	{ "strawberry", NULL,     NULL,       1 << 3,       0,           -1 },
+	{ "audacious", NULL,      NULL,       1 << 3,       0,           -1 },
 	{ "nocotine", NULL,       NULL,       1 << 4,       0,           -1 },
 /*	{ "st",       NULL,       NULL,       0 << 0,       1,           -1 }, */
 };
@@ -75,14 +77,14 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "st", NULL };
 //static const char *tmuxcmd[]  = { "st", "tmux", "a", NULL };
 static const char *filecmd[]  = { "pcmanfm", NULL };
-static const char *browsercmd[]  = { "firefox", NULL };
+static const char *browsercmd[]  = { "falkon", NULL };
 static const char *sublcmd[]  = { "subl", NULL };
 static const char *volup[]  = { "amixer", "set", "Master", "5%+", NULL };
 static const char *voldown[]  = { "amixer", "set", "Master", "5%-", NULL };
 static const char *volmute[]  = { "amixer", "set", "Master", "toggle", NULL };
 static const char *brightup[]  = { "brightnessctl", "s", "+10%", NULL };
 static const char *brightdown[]  = { "brightnessctl", "s", "10%-", NULL };
-static const char *powercmd[] = {"/home/rooyca/.local/bin/pmanager", NULL};
+static const char *powercmd[] = {"sgsd", NULL};
 static const char *lockcmd[] = {"physlock", "-s", "-p", " == Who is you ==", NULL};
 static const char *cmdprintscreen[]  = { "scrot", "-d3", "/home/rooyca/screenshots/%Y-%m-%d-%s_$wx$h.jpg", NULL };
 
