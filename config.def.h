@@ -8,7 +8,7 @@ static const int topbar             = 1;        /* 0 means bottom bar */
 static const int usealtbar          = 0;        /* 1 means use non-dwm status bar */
 static const char *altbarclass      = "";       /* Alternate bar class name */
 static const char *altbarcmd        = ""; 		/* Alternate bar launch command */
-static const int splitstatus        = 1;        /* 1 for split status items */
+static const int splitstatus        = 0;        /* 1 for split status items */
 static const char *splitdelim        = ";";     /* Character used for separating status */
 static const char *fonts[]          = { "monospace:size=9" };
 static const char dmenufont[]       = "monospace:size=9";
@@ -80,16 +80,20 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "st", NULL };
 //static const char *tmuxcmd[]  = { "st", "tmux", "a", NULL };
 static const char *filecmd[]  = { "pcmanfm", NULL };
-static const char *browsercmd[]  = { "falkon", NULL };
+static const char *browsercmd[]  = { "firefox", NULL };
 static const char *sublcmd[]  = { "subl", NULL };
 static const char *volup[]  = { "amixer", "set", "Master", "5%+", NULL };
 static const char *voldown[]  = { "amixer", "set", "Master", "5%-", NULL };
 static const char *volmute[]  = { "amixer", "set", "Master", "toggle", NULL };
+static const char *playsong[]  = { "audtool", "playback-playpause", NULL };
+static const char *stopsong[]  = { "audtool", "playback-playpause", NULL };
+static const char *nextsong[]  = { "audtool", "playlist-advance", NULL };
+static const char *prevsong[]  = { "audtool", "playlist-reverse", NULL };
 static const char *brightup[]  = { "brightnessctl", "s", "+10%", NULL };
 static const char *brightdown[]  = { "brightnessctl", "s", "10%-", NULL };
 static const char *powercmd[] = {"sgsd", NULL};
 static const char *lockcmd[] = {"physlock", "-s", "-p", " == Who is you ==", NULL};
-static const char *cmdprintscreen[]  = { "scrot", "-d3", "/home/rooyca/screenshots/%Y-%m-%d-%s_$wx$h.jpg", NULL };
+static const char *cmdprintscreen[]  = { "scrot", "-d3", "/home/roy/screenshots/%Y-%m-%d-%s_$wx$h.jpg", NULL };
 
 #include <X11/XF86keysym.h>
 
@@ -130,6 +134,10 @@ static const Key keys[] = {
 	{ 0,                            XF86XK_AudioRaiseVolume, spawn, {.v = volup } },
 	{ 0,                            XF86XK_AudioLowerVolume, spawn, {.v = voldown } },
 	{ 0,                            XF86XK_AudioMute, spawn, {.v = volmute } },
+	{ 0,                            XF86XK_AudioPlay, spawn, {.v = playsong } },
+	{ 0,                            XF86XK_AudioStop, spawn, {.v = stopsong } },
+	{ 0,                            XF86XK_AudioPrev, spawn, {.v = prevsong } },
+	{ 0,                            XF86XK_AudioNext, spawn, {.v = nextsong } },
 	{ 0,                            XF86XK_MonBrightnessUp, spawn, {.v = brightup } },
 	{ 0,                            XF86XK_MonBrightnessDown, spawn, {.v = brightdown } },
 	TAGKEYS(                        XK_1,                      0)
