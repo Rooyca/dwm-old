@@ -40,12 +40,12 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "firefox",  NULL,       NULL,       1 << 0,       0,           -1 },
-	{ "falkon",   NULL,       NULL,       1 << 0,       0,           -1 },
+	//{ "falkon",   NULL,       NULL,       1 << 0,       0,           -1 },
 	{ "Subl",     NULL,       NULL,       1 << 1,       0,           -1 },
 	{ "obsidian", NULL,       NULL,       1 << 3,       0,           -1 },
 	{ "strawberry", NULL,     NULL,       1 << 3,       0,           -1 },
 	{ "audacious", NULL,      NULL,       1 << 3,       0,           -1 },
-	{ "nocotine", NULL,       NULL,       1 << 4,       0,           -1 },
+	//{ "nicotine", NULL,       NULL,       1 << 4,       0,           -1 },
 /*	{ "st",       NULL,       NULL,       0 << 0,       1,           -1 }, */
 };
 
@@ -82,13 +82,13 @@ static const char *termcmd[]  = { "st", NULL };
 static const char *filecmd[]  = { "pcmanfm", NULL };
 static const char *browsercmd[]  = { "firefox", NULL };
 static const char *sublcmd[]  = { "subl", NULL };
-static const char *volup[]  = { "amixer", "set", "Master", "5%+", NULL };
-static const char *voldown[]  = { "amixer", "set", "Master", "5%-", NULL };
-static const char *volmute[]  = { "amixer", "set", "Master", "toggle", NULL };
-static const char *playsong[]  = { "audtool", "playback-playpause", NULL };
-static const char *stopsong[]  = { "audtool", "playback-playpause", NULL };
-static const char *nextsong[]  = { "audtool", "playlist-advance", NULL };
-static const char *prevsong[]  = { "audtool", "playlist-reverse", NULL };
+static const char *volup[]  = { "pamixer", "--increase", "5", NULL };
+static const char *voldown[]  = { "pamixer", "--decrease", "5", NULL };
+static const char *volmute[]  = { "pamixer", "--toggle-mute", NULL };
+//static const char *playsong[]  = { "audtool", "playback-playpause", NULL };
+//static const char *stopsong[]  = { "audtool", "playback-playpause", NULL };
+//static const char *nextsong[]  = { "audtool", "playlist-advance", NULL };
+//static const char *prevsong[]  = { "audtool", "playlist-reverse", NULL };
 static const char *brightup[]  = { "brightnessctl", "s", "+10%", NULL };
 static const char *brightdown[]  = { "brightnessctl", "s", "10%-", NULL };
 static const char *powercmd[] = {"sgsd", NULL};
@@ -109,7 +109,7 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_p,      spawn,          {.v = powercmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_v,      togglebar,      {0} },
-	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
+	{ MODKEY,                       XK_c,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
 	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
@@ -134,10 +134,10 @@ static const Key keys[] = {
 	{ 0,                            XF86XK_AudioRaiseVolume, spawn, {.v = volup } },
 	{ 0,                            XF86XK_AudioLowerVolume, spawn, {.v = voldown } },
 	{ 0,                            XF86XK_AudioMute, spawn, {.v = volmute } },
-	{ 0,                            XF86XK_AudioPlay, spawn, {.v = playsong } },
-	{ 0,                            XF86XK_AudioStop, spawn, {.v = stopsong } },
-	{ 0,                            XF86XK_AudioPrev, spawn, {.v = prevsong } },
-	{ 0,                            XF86XK_AudioNext, spawn, {.v = nextsong } },
+	//{ 0,                            XF86XK_AudioPlay, spawn, {.v = playsong } },
+	//{ 0,                            XF86XK_AudioStop, spawn, {.v = stopsong } },
+	//{ 0,                            XF86XK_AudioPrev, spawn, {.v = prevsong } },
+	//{ 0,                            XF86XK_AudioNext, spawn, {.v = nextsong } },
 	{ 0,                            XF86XK_MonBrightnessUp, spawn, {.v = brightup } },
 	{ 0,                            XF86XK_MonBrightnessDown, spawn, {.v = brightdown } },
 	TAGKEYS(                        XK_1,                      0)
